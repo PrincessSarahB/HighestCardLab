@@ -7,6 +7,8 @@ public class GameTest {
 
     Game game;
     Deck deck;
+    Card card1;
+    Card card2;
     Player player1;
     Player player2;
 
@@ -17,12 +19,14 @@ public class GameTest {
         game = new Game(deck);
         player1 = new Player("Jim");
         player2 = new Player("Bob");
+        card1 = new Card(Suit.DIAMONDS, Rank.KING);
+        card2 = new Card(Suit.SPADES, Rank.FIVE);
 
     }
 
     @Test
     public void removeCardFromDeck(){
-        game.deal();
+        game.getCardFromDeck();
         assertEquals(51, deck.getNumberOfCards());
     }
 
@@ -32,5 +36,35 @@ public class GameTest {
         game.addPlayer(player1);
         game.addPlayer(player2);
         assertEquals(2, game.playerCount());
+    }
+
+    @Test
+
+    public void dealCards(){
+        game.addPlayer(player1);
+        game.addPlayer(player2);
+        game.deal();
+        assertEquals(1, player1.cardCount());
+        assertEquals(1, player2.cardCount());
+    }
+
+    @Test
+
+    public void highestCardPlayer1Wins(){
+        game.addPlayer(player1);
+        game.addPlayer(player2);
+        player1.receiveCard(card1);
+        player2.receiveCard(card2);
+        assertEquals(player1, game.compareCards());
+    }
+
+    @Test
+
+    public void highestcardPlayer2Wins(){
+        game.addPlayer(player1);
+        game.addPlayer(player2);
+        player1.receiveCard(card2);
+        player2.receiveCard(card1);
+        assertEquals(player2, game.compareCards());
     }
 }

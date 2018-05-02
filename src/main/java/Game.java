@@ -26,7 +26,34 @@ public class Game {
         this.players.add(player);
     }
 
-  public Card deal(){
+    public Card getCardFromDeck(){
         return deck.removeCard();
   }
-}
+
+
+
+    public void deal() {
+        for (Player player : this.players) {
+            player.receiveCard(getCardFromDeck());
+        }
+
+    }
+
+    public Player compareCards(){
+       Player player1 = this.players.get(0);
+       Player player2 = this.players.get(1);
+
+       if (player1.handValue() > player2.handValue()){
+           return player1;
+        }
+
+        else if (player2.handValue() > player1.handValue()){
+           return player2;
+       }
+
+       else return null;
+
+    }
+
+  }
+

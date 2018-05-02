@@ -11,21 +11,28 @@ public class PlayerTest {
     Deck deck;
 
     @Before
-    public void before(){
+    public void before() {
         deck = new Deck();
-        game = new Game (deck);
+        game = new Game(deck);
         player1 = new Player("Jim");
         card = new Card(Suit.CLUBS, Rank.EIGHT);
     }
 
     @Test
-    public void playerHasName(){
+    public void playerHasName() {
         assertEquals("Jim", player1.getName());
     }
 
     @Test
-    public void playerHasCards(){
-        player1.receiveCard(game);
+    public void playerHasCards() {
+        player1.receiveCard(card);
         assertEquals(1, player1.cardCount());
     }
+
+    @Test
+    public void valueOfHand() {
+        player1.receiveCard(card);
+        assertEquals(8, player1.handValue());
+    }
+
 }
