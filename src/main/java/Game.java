@@ -17,4 +17,8 @@ public class Game {
     public ArrayList<Player> getPlayers() {
         return players;
     }
+
+  public void deal(){
+        deck.removeCard();
+  }
 }

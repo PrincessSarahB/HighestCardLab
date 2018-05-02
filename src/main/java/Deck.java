@@ -31,6 +31,10 @@ public class Deck {
 
 //        Collections is an inbuilt Java thing, shuffle is an inbuilt method for it.
 
+        public void removeCard(){
+        this.cards.remove(0);
+    }
+
     }
 
 //    .values brings back every enum name, built in enum method.
