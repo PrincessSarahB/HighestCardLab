@@ -25,4 +25,12 @@ public class GameTest {
         game.deal();
         assertEquals(51, deck.getNumberOfCards());
     }
+
+    @Test
+
+    public void gameHasPlayers(){
+        game.addPlayer(player1);
+        game.addPlayer(player2);
+        assertEquals(2, game.playerCount());
+    }
 }

@@ -7,9 +7,13 @@ public class PlayerTest {
 
     Player player1;
     Card card;
+    Game game;
+    Deck deck;
 
     @Before
     public void before(){
+        deck = new Deck();
+        game = new Game (deck);
         player1 = new Player("Jim");
         card = new Card(Suit.CLUBS, Rank.EIGHT);
     }
@@ -19,9 +23,9 @@ public class PlayerTest {
         assertEquals("Jim", player1.getName());
     }
 
-//    @Test
-//    public void playerHasCards(){
-//        player1.recieveCard(game);
-//        assertEquals(1, player1.getCard());
-//    }
+    @Test
+    public void playerHasCards(){
+        player1.receiveCard(game);
+        assertEquals(1, player1.cardCount());
+    }
 }

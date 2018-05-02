@@ -31,8 +31,8 @@ public class Deck {
 
 //        Collections is an inbuilt Java thing, shuffle is an inbuilt method for it.
 
-        public void removeCard(){
-        this.cards.remove(0);
+        public Card removeCard(){
+        return this.cards.remove(0);
     }
 
     }

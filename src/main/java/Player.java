@@ -17,8 +17,13 @@ public class Player {
         this.name = name;
         this.card = new ArrayList<>();
 
+        }
 
+    public void receiveCard(Game game){
+        this.card.add(game.deal());
+        }
 
-
+    public int cardCount(){
+       return this.card.size();
     }
 }

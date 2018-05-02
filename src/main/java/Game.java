@@ -18,7 +18,15 @@ public class Game {
         return players;
     }
 
-  public void deal(){
-        deck.removeCard();
+    public int playerCount(){
+        return this.players.size();
+    }
+
+    public void addPlayer(Player player){
+        this.players.add(player);
+    }
+
+  public Card deal(){
+        return deck.removeCard();
   }
 }
