@@ -28,6 +28,10 @@ public class Player {
     }
 
     public int handValue(){
-        return getHand().get(0).getRank().getValue();
+        int cardCounter = 0;
+        for (Card card : this.hand){
+            cardCounter += card.getRank().getValue();
+        }
+        return cardCounter;
     }
 }
