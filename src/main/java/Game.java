@@ -38,7 +38,6 @@ public class Game {
         }
 
     }
-
     public Player compareCards(){
        Player player1 = this.players.get(0);
        Player player2 = this.players.get(1);
